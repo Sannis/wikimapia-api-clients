@@ -58,9 +58,7 @@ Contributing
 ------------
 
 I will be happy to hear tips from the more experienced programmers.
-If you are interested in wide MySQL usage in Node.JS applications,
-leave your comments to the code.
-I'll be glad to see your forks and commits in them :)
+Also I'll be glad to see your forks and commits in them :)
 
 To contribute any patches, simply fork this repository using GitHub
 and send a pull request to [me](https://github.com/Sannis). Thanks!
