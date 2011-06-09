@@ -7,3 +7,4 @@ lint:
 	nodelint ./lib/*.js ./test/*.js
 
 .PHONY: test lint
+
