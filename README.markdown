@@ -17,7 +17,12 @@ This module tested with Node version v0.4.8.
 
 It have only one dependency -- [request] by Mikeal Rogers.
 
+If you want to test or improve this module, you should install two other modules:
+[nodeunit] by Caolan McMahon and [nodelint] by Tav.
+
 [request]: https://github.com/mikeal/request
+[nodeunit]: https://github.com/caolan/nodeunit
+[nodelint]: https://github.com/tav/nodelint
 
 
 Installation
@@ -35,7 +40,7 @@ Developing
 
 To get source code:
 
-    $> git clone git://github.com/Sannis/node-mysql-libmysqlclient.git
+    $> git clone git://github.com/Sannis/node-wikimapia.git
     $> cd node-mysql-libmysqlclient
 
 To run tests:
