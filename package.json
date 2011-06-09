@@ -1,0 +1,24 @@
+{ "name" : "wikimapia"
+, "description" : "Wrapper for the Wikimapia API"
+, "homepage" : "https://github.com/Sannis/node-wikimapia"
+, "version" : "0.0.0"
+, "author" : "Oleg Efimov <efimovov@gmail.com>"
+, "main" : "./lib/wikimapia"
+, "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/Sannis/node-wikimapia.git"
+  }
+, "licenses" :
+  [ { "type" : "The MIT License"
+    , "url" : "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ]
+, "engine" : [ "node >=0.4.0" ]
+, "dependencies" :
+  { "request"  : ">=1.9"
+  }
+, "devDependencies" :
+  { "nodeunit" : ">=0.5"
+  , "nodelint" : ">=0.4"
+  }
+}
