@@ -1,7 +1,7 @@
 Node-wikimapia
 =========================
 
-[Node.js] wrapper for the [Wikimapia] [API].
+[Node.js] wrapper for the [Wikimapia] [API].  
 Check out the [Github repo] for the source code.  
 
 [Node.js]: http://nodejs.org
