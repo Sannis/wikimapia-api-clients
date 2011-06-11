@@ -1,13 +1,11 @@
 Node-wikimapia
-=========================
+==============
 
-[Node.js] wrapper for the [Wikimapia] [API].  
+[Node.js] wrapper for the [Wikimapia](http://wikimapia.org) [API](http://wikimapia.org/api).  
 Check out the [Github repo] for the source code.  
 
 [Node.js]: http://nodejs.org
-[Wikimapia]: http://wikimapia.org
-[API]: http://wikimapia.org/api
-[Github repo]: https://github.com/Sannis/node-mysql-libmysqlclient
+[Github repo]: https://github.com/Sannis/node-wikimapia
 
 
 Dependencies
@@ -17,11 +15,12 @@ This module tested with Node version v0.4.8.
 
 It have only one dependency -- [request] by Mikeal Rogers.
 
-If you want to test or improve this module, you should install two other modules:
-[nodeunit] by Caolan McMahon and [nodelint] by Tav.
+If you want to test or improve this module, you should install three other modules:
+[nodeunit] and [async] by Caolan McMahon and [nodelint] by Tav.
 
 [request]: https://github.com/mikeal/request
 [nodeunit]: https://github.com/caolan/nodeunit
+[async]: https://github.com/caolan/async
 [nodelint]: https://github.com/tav/nodelint
 
 
@@ -41,7 +40,7 @@ Developing
 To get source code:
 
     $> git clone git://github.com/Sannis/node-wikimapia.git
-    $> cd node-mysql-libmysqlclient
+    $> cd node-wikimapia
 
 To run tests:
 
