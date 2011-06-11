@@ -44,10 +44,11 @@ exports.TestBadKey = function (test) {
 exports.Object = function (test) {
   test.expect(3);
 
-  var api = new Wikimapia();
-  var objectId = 55;
-  var objectTitle = 'Eiffel Tower';
-  var objectCountry = 'France';
+  var
+    api = new Wikimapia(),
+    objectId = 55,
+    objectTitle = 'Eiffel Tower',
+    objectCountry = 'France';
 
   api.object(objectId, function (err, json) {
     if (err) {
@@ -67,13 +68,13 @@ exports.Object = function (test) {
 exports.Search = function (test) {
   test.expect(1);
 
-  var api = new Wikimapia();
-  var objectId = 55;
-  var objectTitle = 'Eiffel Tower';
-  var objectCountry = 'France';
-
-  var founded = false;
-  var page = 1;
+  var
+    api = new Wikimapia(),
+    objectId = 55,
+    objectTitle = 'Eiffel Tower',
+    objectCountry = 'France',
+    founded = false,
+    page = 1;
   
   Async.until(
     function () {
@@ -86,10 +87,10 @@ exports.Search = function (test) {
         }
 
         founded = json.folder.some(function (object) {
-          return (object.id == objectId) && (object.name == objectTitle) && (object.location.country == objectCountry);
+          return (object.id === objectId) && (object.name === objectTitle) && (object.location.country === objectCountry);
         });
 
-        page++;
+        page += 1;
 
         cb();
       });
