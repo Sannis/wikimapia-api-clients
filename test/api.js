@@ -55,7 +55,7 @@ exports.Box = function (test) {
     if (err) {
       throw err;
     }
-console.log(json.folder);
+
     var founded = json.folder.some(function (object) {
       return (object.id === objectId) && (object.name === objectTitle);
     });

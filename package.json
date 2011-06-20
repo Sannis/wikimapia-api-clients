@@ -1,7 +1,7 @@
 { "name" : "wikimapia"
 , "description" : "Wrapper for the Wikimapia API"
 , "homepage" : "https://github.com/Sannis/node-wikimapia"
-, "version" : "0.0.2"
+, "version" : "0.0.3"
 , "author" : "Oleg Efimov <efimovov@gmail.com>"
 , "main" : "./lib/wikimapia"
 , "repository" :

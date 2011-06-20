@@ -1,7 +1,7 @@
 Changelog (revision history) for node-wikimapia,
 the Node.js wrapper for the Wikimapia API.
 
-## Master
+## Version 0.0.3
   * Add API 'box' method implementation with tests
   * Code refactoring
 
