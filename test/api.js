@@ -41,6 +41,31 @@ exports.TestBadKey = function (test) {
   });
 };
 
+exports.Box = function (test) {
+  test.expect(1);
+
+  var
+    api = new Wikimapia(),
+    boxParameters = {x: 33185, y: 22545, z: 16},
+    objectId = '55',
+    objectTitle = 'Eiffel Tower',
+    objectCountry = 'France';
+
+  api.box(boxParameters, function (err, json) {
+    if (err) {
+      throw err;
+    }
+console.log(json.folder);
+    var founded = json.folder.some(function (object) {
+      return (object.id === objectId) && (object.name === objectTitle);
+    });
+
+    test.ok(founded);
+
+    test.done();
+  });
+};
+
 exports.Object = function (test) {
   test.expect(3);
 
