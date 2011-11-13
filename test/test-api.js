@@ -112,7 +112,9 @@ exports.Search = function (test) {
         }
 
         founded = json.folder.some(function (object) {
-          return (object.id === objectId) && (object.name === objectTitle) && (object.location.country === objectCountry);
+          return (object.id === objectId)
+              && (object.name === objectTitle)
+              && (object.location.country === objectCountry);
         });
 
         page += 1;
