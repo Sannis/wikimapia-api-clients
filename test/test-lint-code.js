@@ -14,10 +14,10 @@ var helper = require('./helper');
  */
 exports.MakeLint = function (test) {
   helper.testConsoleOutput(
-    'make',
-    ['lint'],
+    './node_modules/.bin/nodelint',
+    ['./lib/', './test/'],
     {
-      stdout: './node_modules/.bin/nodelint ./lib/ ./test/\n',
+      stdout: '',
       stderr: '0 errors\n',
       exitCode: 0
     },
