@@ -5,7 +5,7 @@
 /**
  * Module dependencies
  */
-var helper = require('./helper');
+var helper = require('helper.js');
 
 /**
  * Lint own code

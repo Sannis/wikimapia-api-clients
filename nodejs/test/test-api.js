@@ -6,7 +6,7 @@
 
 var Async = require('async');
 
-var Wikimapia = require('../lib/wikimapia');
+var Wikimapia = require('../nodejs/lib/wikimapia');
 
 exports.TestNew = function (test) {
   test.expect(1);
