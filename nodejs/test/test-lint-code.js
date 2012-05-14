@@ -5,7 +5,7 @@
 /**
  * Module dependencies
  */
-var helper = require('helper.js');
+var helper = require('./helper');
 
 /**
  * Lint own code
@@ -17,8 +17,8 @@ exports.MakeLint = function (test) {
     './node_modules/.bin/nodelint',
     ['./lib/', './test/'],
     {
-      stdout: '',
-      stderr: '0 errors\n',
+      stdout: '0 errors\n',
+      stderr: '',
       exitCode: 0
     },
     test

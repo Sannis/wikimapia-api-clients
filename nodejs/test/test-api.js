@@ -6,7 +6,7 @@
 
 var Async = require('async');
 
-var Wikimapia = require('../nodejs/lib/wikimapia');
+var Wikimapia = require('../lib/wikimapia');
 
 exports.TestNew = function (test) {
   test.expect(1);
@@ -36,7 +36,7 @@ exports.TestBadKey = function (test) {
         message: 'Invalid key'
       } ]
     });
-    
+
     test.done();
   });
 };
@@ -46,10 +46,9 @@ exports.Box = function (test) {
 
   var
     api = new Wikimapia(),
-    boxParameters = {x: 33185, y: 22545, z: 16},
+    boxParameters = {x: 33185, y: 22545, z: 16, count: 50},
     objectId = '55',
-    objectTitle = 'Eiffel Tower',
-    objectCountry = 'France';
+    objectTitle = 'Eiffel Tower';
 
   api.box(boxParameters, function (err, json) {
     if (err) {
