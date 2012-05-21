@@ -5,5 +5,9 @@ node_js:
   - 0.6
 before_install:
   - sudo apt-get update
-  - sudo apt-get install phpunit
+  - sudo apt-get install php-pear
+  - sudo pear upgrade PEAR
+  - sudo pear channel-discover pear.phpunit.de
+  - sudo pear channel-discover pear.symfony-project.com
+  - sudo pear install --alldeps phpunit/PHPUnit
 script: "make test"
