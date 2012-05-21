@@ -1,8 +1,8 @@
-SUBDIRS = nodejs
+SUBDIRS = php nodejs
 
 install:
 	for dir in $(SUBDIRS); do\
-		cd $$dir && $(MAKE) install && cd -; \
+		cd $$dir; $(MAKE) install; cd -; \
 	done
 
 test: install
@@ -12,7 +12,7 @@ test: install
 
 clean:
 	for dir in $(SUBDIRS); do\
-		cd $$dir && $(MAKE) clean && cd -; \
+		cd $$dir; $(MAKE) clean; cd -; \
 	done
 
-.PHONY: install test clean lint
+.PHONY: install test clean

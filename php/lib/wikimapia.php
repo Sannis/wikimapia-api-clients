@@ -27,14 +27,14 @@ class WikimapiaAPI
     protected $key;
 
     /**
-     * Wikimapia Output format
+     * Output format
      *
      * Available values: xml (default), kml, json, jsonp, binary
      */
     protected $format = "xml";
 
     /**
-     * Packing output data parameter
+     * Packing output data type
      *
      * Available values: none (default), gzip
      */
@@ -42,18 +42,21 @@ class WikimapiaAPI
 
     /**
      * Object constructor
+     *
      * @param string $apiKey You wikimapia API key
      * @param string $format Output format
+     * @param string $packing Packing output data type
      */
-    public function __construct($apiKey, $format = "xml")
+    public function __construct($apiKey, $format = "xml", $packing = "none")
     {
         $this->key = $apiKey;
         $this->format = $format;
+        $this->packing = $packing;
     }
 
     /**
      * Set API output data format
-     * @tutorial http://wikimapia.org/api
+     *
      * @param   string $format
      * @return  boolean
      */
@@ -65,6 +68,7 @@ class WikimapiaAPI
 
     /**
      * Get selected output data format
+     *
      * @return string
      */
     public function getFormat()
@@ -74,7 +78,7 @@ class WikimapiaAPI
 
     /**
      * Set API output data packing
-     * @tutorial http://wikimapia.org/api
+     *
      * @param   string $packing
      * @return  boolean
      */
@@ -86,6 +90,7 @@ class WikimapiaAPI
 
     /**
      * Get selected packing
+     *
      * @return string
      */
     public function getPacking()
@@ -95,6 +100,7 @@ class WikimapiaAPI
 
     /**
      * Function to get Object data by its ID
+     *
      * @param int       $objectId   Object identifier
      * @return string   Output data in selected format (see setFormat())
      */
@@ -104,20 +110,8 @@ class WikimapiaAPI
     }
 
     /**
-     * This is a synonym of getObjectsInBoxByLatLon
-     * @param int $lon_min
-     * @param int $lat_min
-     * @param int $lon_max
-     * @param int $lat_max
-     * @return string
-     */
-    public function getObjectInBox($lon_min, $lat_min, $lon_max, $lat_max)
-    {
-        return $this->getObjectsInBoxByLatLon($lon_min, $lat_min, $lon_max, $lat_max);
-    }
-
-    /**
      * Get objects in box by latitude and longitude
+     *
      * @param float $lon_min Minimum longitude
      * @param float $lat_min Minimum latitude
      * @param float $lon_max Maximum longitude
@@ -141,18 +135,20 @@ class WikimapiaAPI
 
     /**
      * Get objects in box by tile coordinates
+     *
      * @param int $x
      * @param int $y
      * @param int $z
      * @return string
      */
-    public function getObjectsInBoxByTile($x, $y, $z)
+    public function getObjectsInBoxByTile($x, $y, $z, $count = 50)
     {
-        return $this->doSendApiRequest("box", "x={$x}&y={$y}&z={$z}");
+        return $this->doSendApiRequest("box", "x={$x}&y={$y}&z={$z}&count={$count}");
     }
 
     /**
      * Get objects that intersects with point
+     *
      * @param float $x
      * @param float $y
      * @return string
@@ -164,6 +160,7 @@ class WikimapiaAPI
 
     /**
      * Get objects that determines search query
+     *
      * @param string $query
      * @return string
      */
@@ -174,15 +171,16 @@ class WikimapiaAPI
 
     /**
      * Send request to api
+     *
      * @param string $function
      * @param string $args
      * @return string
      */
-    public function doSendApiRequest($function, $args)
+    protected function doSendApiRequest($function, $args)
     {
         // if you don't have a key, create it on http://wikimapia.org/api/
-        if ($this->key == null) {
-            return null;
+        if (!$this->key) {
+            throw new ErrorException("[Wikimapia API] Error: you should pass API key to WikimapiaAPI constructor");
         }
 
         // combine request URL
