@@ -1,4 +1,4 @@
-Wikimapia API clients
+Wikimapia API clients [![Build Status](https://secure.travis-ci.org/Sannis/wikimapia-api-clients.png?branch=master)](http://travis-ci.org/Sannis/wikimapia-api-clients)
 =====================
 
 [Wikimapia.org] gives you an extensive set of functions that can be used in your websites and applications for accumulated geographic data.
