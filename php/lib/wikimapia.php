@@ -162,11 +162,15 @@ class WikimapiaAPI
      * Get objects that determines search query
      *
      * @param string $query
+     * @param int $page
+     *
      * @return string
      */
-    public function getObjectsBySearchQuery($query)
+    public function getObjectsBySearchQuery($query, $page = 1)
     {
-        return $this->doSendApiRequest("search", "q={$query}");
+        $query = rawurlencode($query);
+
+        return $this->doSendApiRequest("search", "q={$query}&page={$page}");
     }
 
     /**
