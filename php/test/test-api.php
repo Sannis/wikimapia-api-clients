@@ -7,9 +7,11 @@ require_once(__DIR__ . "/../lib/wikimapia.php");
  */
 class WikimapiaAPITests extends PHPUnit_Framework_TestCase
 {
+    const TEST_API_KEY = "F09D7CEF-C79C4691-E311E506-54999C19-73DF1B6C-DCBA00AC-B7CE2ABC-FED89F9B";
+
     public function testNew()
     {
-        $api = new WikimapiaAPI("F09D7CEF-C79C4691-E311E506-54999C19-73DF1B6C-DCBA00AC-B7CE2ABC-FED89F9B");
+        $api = new WikimapiaAPI(self::TEST_API_KEY);
 
         $this->assertTrue($api instanceof WikimapiaAPI);
     }
@@ -24,13 +26,13 @@ class WikimapiaAPITests extends PHPUnit_Framework_TestCase
 
         $xmlResponse = $api->getObjectById(55);
 
-        // fake $result usage
+        // fake $xmlResponse usage
         echo $xmlResponse;
     }
 
     public function testBox()
     {
-        $api = new WikimapiaAPI("F09D7CEF-C79C4691-E311E506-54999C19-73DF1B6C-DCBA00AC-B7CE2ABC-FED89F9B", "json");
+        $api = new WikimapiaAPI(self::TEST_API_KEY, "json");
 
         $jsonResponse = $api->getObjectsInBoxByTile(33185, 22545, 16, 50);
 
@@ -49,7 +51,7 @@ class WikimapiaAPITests extends PHPUnit_Framework_TestCase
 
     public function testObject()
     {
-        $api = new WikimapiaAPI("F09D7CEF-C79C4691-E311E506-54999C19-73DF1B6C-DCBA00AC-B7CE2ABC-FED89F9B", "json");
+        $api = new WikimapiaAPI(self::TEST_API_KEY, "json");
 
         $jsonResponse = $api->getObjectById(55);
         $jsonObject = json_decode($jsonResponse);
@@ -61,7 +63,7 @@ class WikimapiaAPITests extends PHPUnit_Framework_TestCase
 
     public function testSearch()
     {
-        $api = new WikimapiaAPI("F09D7CEF-C79C4691-E311E506-54999C19-73DF1B6C-DCBA00AC-B7CE2ABC-FED89F9B", "json");
+        $api = new WikimapiaAPI(self::TEST_API_KEY, "json");
 
         $containsEiffel = false;
         $page = 1;

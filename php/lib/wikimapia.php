@@ -139,6 +139,7 @@ class WikimapiaAPI
      * @param int $x
      * @param int $y
      * @param int $z
+     * @param int $count
      * @return string
      */
     public function getObjectsInBoxByTile($x, $y, $z, $count = 50)
