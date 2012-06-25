@@ -12,6 +12,7 @@ before_install:
   - sudo pear install --alldeps phpunit/PHPUnit
   - sudo apt-get install perl
   - echo "" | sudo cpan
+  - sudo cpan install JSON::XS
   - sudo cpan install JSON
   - sudo cpan install List::MoreUtils
 script: "make test"
