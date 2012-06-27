@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Wikimapia.js Test Suite</title>
+        <link rel="stylesheet" href="nodeunit.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="mootools-1.2.5-core.js"></script>
+        <script type="text/javascript" src="../wikimapia.js"></script>
+        <script type="text/javascript" src="nodeunit.js"></script>
+        <script type="text/javascript" src="test-wikimapia.js"></script>
+    </head>
+    <body>
+        <h1 id="nodeunit-header">Wikimapia.js Test Suite</h1>
+        <script type="text/javascript">
+            var testWikimapiaKey = 'F09D7CEF-C79C4691-E311E506-54999C19-73DF1B6C-DCBA00AC-B7CE2ABC-FED89F9B';
+            nodeunit.run({
+                'test-wikimapia': test_wikimapia
+            });
+        </script>
+    </body>
+</html>
