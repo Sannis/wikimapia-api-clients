@@ -1,13 +1,13 @@
 /**
- * Wikimapia API JavaScript Client Class for Mootools
+ * Wikimapia API JavaScript Client Class for MooTools 1.2
  * 
  * @package Wikimapia API
  * @author Wikimapia API Stuff
  * @version 0.1
  * @tutorial http://wikimapia.org/api/
- * @requires Hash, Request, Request.JSON
+ * @requires Class, Hash, Request, Request.JSON
  */
-Request.WikimapiaAPI = new Class( {
+Request.WikimapiaAPI = new Class({
     Extends : Request,
     options : {
         /**
@@ -81,7 +81,7 @@ Request.WikimapiaAPI = new Class( {
      */
     send : function(options) {
         if (this.options.format == 'json') {
-            this.headers.extend( {
+            this.headers.extend({
                 'Accept' : 'application/json',
                 'X-Request' : 'JSON'
             });
@@ -108,12 +108,10 @@ Request.WikimapiaAPI = new Class( {
      * @return {Request.WikimapiaAPI}
      */
     getObjectById : function(objectId, lang) {
-        if (!lang) {
-            lang = this.options.language;
-        } else {
-            this.options.lang = language;
+        if (lang) {
+            this.options.lang = lang;
         }
-        return this.send(this.formatRequest( {
+        return this.send(this.formatRequest({
             func : "object",
             id : objectId
         }));
@@ -150,7 +148,7 @@ Request.WikimapiaAPI = new Class( {
      * @return {Request.WikimapiaAPI}
      */
     getObjectsInBoxByLatLon : function(minLng, minLat, maxLng, maxLat) {
-        return this.send(this.formatRequest( {
+        return this.send(this.formatRequest({
             func : "box",
             lon_min : minLng,
             lat_min : minLat,
@@ -167,7 +165,7 @@ Request.WikimapiaAPI = new Class( {
      * @return {Request.WikimapiaAPI}
      */
     getObjectsInBoxByBBox : function(bbox) {
-        return this.send(this.formatRequest( {
+        return this.send(this.formatRequest({
             func : "box",
             bbox : bbox
         }));
@@ -185,7 +183,7 @@ Request.WikimapiaAPI = new Class( {
      * @return {Request.WikimapiaAPI}
      */
     getObjectsInBoxByTile : function(x, y, z) {
-        return this.send(this.formatRequest( {
+        return this.send(this.formatRequest({
             func : "box",
             x : x,
             y : y,
@@ -203,7 +201,7 @@ Request.WikimapiaAPI = new Class( {
      * @return {Request.WikimapiaAPI}
      */
     getObjectsInPoint : function(x, y) {
-        return this.send(this.formatRequest( {
+        return this.send(this.formatRequest({
             func : "point",
             x : x,
             y : y
@@ -218,7 +216,7 @@ Request.WikimapiaAPI = new Class( {
      * @return {Request.WikimapiaAPI}
      */
     getObjectsBySearchQuery : function(query) {
-        return this.send(this.formatRequest( {
+        return this.send(this.formatRequest({
             func : "search",
             q : query
         }));
@@ -232,7 +230,7 @@ Request.WikimapiaAPI = new Class( {
      * @return {Hash}
      */
     formatRequest : function(options) {
-        var req = new Hash( {
+        var req = new Hash({
             "function" : options.func,
             "key" : this.options.key,
             "format" : this.options.format,
