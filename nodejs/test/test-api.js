@@ -9,9 +9,13 @@ var Async = require('async');
 var Wikimapia = require('../lib/wikimapia');
 
 exports.TestNew = function (test) {
-  test.expect(1);
+  test.expect(2);
 
-  var api = new Wikimapia();
+  var api = null;
+
+  test.doesNotThrow(function () {
+    api = new Wikimapia();
+  });
 
   test.ok(api instanceof Wikimapia);
 
