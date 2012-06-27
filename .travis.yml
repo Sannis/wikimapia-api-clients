@@ -5,9 +5,8 @@ before_install:
   - sudo pear channel-discover pear.phpunit.de
   - sudo pear channel-discover pear.symfony-project.com
   - sudo pear install --alldeps phpunit/PHPUnit
-  - sudo apt-get install perl
-  - echo "" | sudo cpan
-  - sudo cpan install JSON::XS
-  - sudo cpan install JSON
-  - sudo cpan install List::MoreUtils
+  - sudo apt-get install cpanminus
+  - sudo cpanm JSON::XS
+  - sudo cpanm JSON
+  - sudo cpanm List::MoreUtils
 script: "make test"
