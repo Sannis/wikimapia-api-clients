@@ -1,4 +1,4 @@
-SUBDIRS = php perl nodejs
+SUBDIRS = php perl nodejs javascript
 
 install:
 	for dir in $(SUBDIRS); do\
