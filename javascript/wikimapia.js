@@ -179,15 +179,18 @@ Request.WikimapiaAPI = new Class({
      *            y
      * @param {Number}
      *            z
+     * @param {Number}
+     *          count
      * 
      * @return {Request.WikimapiaAPI}
      */
-    getObjectsInBoxByTile : function(x, y, z) {
+    getObjectsInBoxByTile : function(x, y, z, count) {
         return this.send(this.formatRequest({
             func : "box",
             x : x,
             y : y,
-            z : z
+            z : z,
+            count : count || 50
         }));
     },
     /**
@@ -215,10 +218,11 @@ Request.WikimapiaAPI = new Class({
      * 
      * @return {Request.WikimapiaAPI}
      */
-    getObjectsBySearchQuery : function(query) {
+    getObjectsBySearchQuery : function(query, page) {
         return this.send(this.formatRequest({
             func : "search",
-            q : query
+            q : query,
+            page : page || 1
         }));
     },
     /**
