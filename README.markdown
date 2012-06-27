@@ -1,7 +1,7 @@
 Wikimapia API clients [![Build status][Build status image]][Build status URL]
 =============================================================================
 
-**[Wikimapia API] clients for PHP, Perl, Node.js, C# and Java.**
+**[Wikimapia API] clients for PHP, Perl, Node.js, MooTools-smell JavaScript, C# and Java.**
 
 [Build status image]: https://secure.travis-ci.org/Sannis/wikimapia-api-clients.png?branch=master
 [Build status URL]: http://travis-ci.org/Sannis/wikimapia-api-clients
