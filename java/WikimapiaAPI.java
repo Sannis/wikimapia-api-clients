@@ -1,9 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package wikimapia_api;
+package org.wikimapia.api;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -150,18 +145,18 @@ public class WikimapiaAPI {
      * @return string
      */
     public String getObjectsInBoxByLatLon( float lon_min, float lat_min, float lon_max, float lat_max ) {
-        return doSendApiRequest( "box", "&lon_min=" + lon_min + "&lat_min=" + lat_min + "&lon_max=" + lon_max + "&lat_max=" + lat_max );
+        return doSendApiRequest( "box", "lon_min=" + lon_min + "&lat_min=" + lat_min + "&lon_max=" + lon_max + "&lat_max=" + lat_max );
     }
 
     /**
      * Get objects in box by latitude and longitude separated by comma
      *
-     * @param string $bbox -> $lon_min,$lat_min,$lon_max,$lat_max
+     * @param string $bbox -> "$lon_min,$lat_min,$lon_max,$lat_max"
      * 
      * @return string
      */
     public String getObjectsInBoxByBBox( String bbox ) {
-        return doSendApiRequest( "box", "&bbox=" + bbox );
+        return doSendApiRequest( "box", "bbox=" + bbox );
     }
 
     /**
@@ -170,11 +165,25 @@ public class WikimapiaAPI {
      * @param int $x
      * @param int $y
      * @param int $z
+     * @param int $count
      * 
      * @return string
      */
+    public String getObjectsInBoxByTile( int x, int y, int z, int count ) {
+        return doSendApiRequest( "box", "x=" + x + "&y=" + y + "&z=" + z + "&count=" + count );
+    }
+
+    /**
+     * Get objects in box by tile coordinates
+     *
+     * @param int $x
+     * @param int $y
+     * @param int $z
+     *
+     * @return string
+     */
     public String getObjectsInBoxByTile( int x, int y, int z ) {
-        return doSendApiRequest( "box", "&x=" + x + "&y=" + y + "&z=" + z );
+        return getObjectsInBoxByTile( x, y, x, 50 );
     }
 
     /**
@@ -186,18 +195,30 @@ public class WikimapiaAPI {
      * @return string
      */
     public String getObjectsInPoint( float x, float y ) {
-        return doSendApiRequest( "point", "&x=" + x + "&y=" + y );
+        return doSendApiRequest( "point", "x=" + x + "&y=" + y );
     }
 
     /**
      * Get objects that determines search query
      * 
      * @param string $query
+     * @param int    $page
+     *
+     * @return string
+     */
+    public String getObjectsBySearchQuery( String query, int page ) {
+        return doSendApiRequest( "search", "q=" + query + "&page=" + page);
+    }
+
+    /**
+     * Get objects that determines search query
+     *
+     * @param string $query
      *
      * @return string
      */
     public String getObjectsBySearchQuery( String query ) {
-        return doSendApiRequest( "search", "&q=" + query );
+        return getObjectsBySearchQuery( query, 1 );
     }
 
     /**
@@ -207,7 +228,7 @@ public class WikimapiaAPI {
      * @return string
      */
     public String doSendApiRequest( String function, String args ) {
-        // if you dont have a key, create it on http://wikimapia.org/api/
+        // if you don't have a key, create it on http://wikimapia.org/api/
         if( m_Key == null ) {
             return null;
         }
@@ -216,7 +237,7 @@ public class WikimapiaAPI {
         try {
             // Create a URL for the desired page
             URL url = new URL( m_Url + "/?function=" + function + "&key=" + m_Key + "&format=" + m_Format 
-                    + "&pack=" + m_Packing + "&language=" + m_Language + args );
+                    + "&pack=" + m_Packing + "&language=" + m_Language + "&" + args );
 
             // Read all the text returned by the server
             BufferedReader in = new BufferedReader( new InputStreamReader(url.openStream()) );
